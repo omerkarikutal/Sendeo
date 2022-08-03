@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "CustomerService.Grpc";
+
+service Customer {
+	rpc GetCustomer (GetCustomerRequest) returns (CustomerModel);
+}
+
+message GetCustomerRequest {
+	string code = 1;	
+}
+
+message CustomerModel {
+	int32 id = 1;
+	string nameSurname = 2;
+	string code = 3;
+}
