@@ -2,7 +2,7 @@ using CustomerService.Data.Context;
 using CustomerService.Data.Repository;
 using CustomerService.Grpc.Services;
 using Microsoft.EntityFrameworkCore;
-
+using CustomerService.Grpc.Extension;
 var builder = WebApplication.CreateBuilder(args);
 
 // Additional configuration is required to successfully run gRPC on macOS.
@@ -19,6 +19,7 @@ builder.Services.AddDbContext<CustomerContext>(
 
 var app = builder.Build();
 
+app.CreateDb();
 // Configure the HTTP request pipeline.
 //app.MapGrpcService<GreeterService>();
 app.MapGrpcService<CustomerService.Grpc.Services.CustomerService>();

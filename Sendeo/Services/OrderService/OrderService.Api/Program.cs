@@ -13,7 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IOrderService, OrderService.Business.Business.OrderService>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-builder.Services.ConfigureCnsl(builder.Configuration);
+//builder.Services.ConfigureCnsl(builder.Configuration);
 
 builder.Services.AddDbContext<OrderContext>(
     options => options.UseSqlServer(builder.Configuration["ConnectionStrings:OrderDb"]));
@@ -38,5 +38,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-app.RegisterCnsl(app.Lifetime);
+//app.RegisterCnsl(app.Lifetime);
 app.Run();
