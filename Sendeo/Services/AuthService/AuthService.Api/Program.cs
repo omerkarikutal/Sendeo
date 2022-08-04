@@ -1,6 +1,7 @@
 using AuthService.Api.Services;
 using MediatR;
 using System.Reflection;
+using AuthService.Api.Extension;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
-
+builder.Services.Config(builder.Configuration);
 builder.Services.AddScoped<IAuthService, AuthService.Api.Services.AuthService>();
 
 var app = builder.Build();

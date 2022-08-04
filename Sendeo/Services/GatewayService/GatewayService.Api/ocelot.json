@@ -14,7 +14,11 @@
       ],
       "UpstreamPathTemplate": "/order/{everything}",
       "UpstreamHttpMethod": [ "Get" ],
-      "UpstreamScheme": "http"
+      "UpstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "SendeoAuthKey",
+        "AllowedScopes": []
+      }
     },
     {
       //"UseServiceDiscovery": true,
@@ -34,7 +38,7 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5000",
+    "BaseUrl": "http://localhost:5000"
     //"ServiceDiscoveryProvider": {
     //  "Host": "localhost",
     //  "Port": 8500,

@@ -13,6 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IOrderService, OrderService.Business.Business.OrderService>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.Config(builder.Configuration);
 //builder.Services.ConfigureCnsl(builder.Configuration);
 
 builder.Services.AddDbContext<OrderContext>(
