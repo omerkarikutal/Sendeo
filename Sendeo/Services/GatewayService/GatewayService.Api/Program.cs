@@ -1,13 +1,13 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using Ocelot.Provider.Consul;
+//using Ocelot.Provider.Consul;
 using GatewayService.Api.Extension;
 //IConfiguration configuration = new ConfigurationBuilder()
 //                            .AddJsonFile("ocelot.json")
 //                            .Build();
 
 var builder = WebApplication.CreateBuilder(args);
-
+//builder.Host.
 //builder.Configuration.AddJsonFile("ocelot.json");
 
 //IConfiguration configuration = new ConfigurationBuilder()
@@ -17,7 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 //builder.Services.AddOcelot(configuration);
 
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-builder.Services.AddOcelot(builder.Configuration);
+//builder.Services.AddOcelot();
 
 
 
@@ -48,7 +48,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseOcelot();
+app.UseOcelot().Wait();
 
 
 app.Run();
