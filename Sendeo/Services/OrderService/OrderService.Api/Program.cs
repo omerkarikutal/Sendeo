@@ -35,7 +35,7 @@ if (app.Environment.IsDevelopment())
 app.CreateDb();
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

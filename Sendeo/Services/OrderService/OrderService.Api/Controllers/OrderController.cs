@@ -5,7 +5,7 @@ using OrderService.Business.Business;
 
 namespace OrderService.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class OrderController : ControllerBase

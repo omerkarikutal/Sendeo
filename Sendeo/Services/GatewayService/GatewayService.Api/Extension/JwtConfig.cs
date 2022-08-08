@@ -3,7 +3,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace OrderService.Api.Extension
+namespace GatewayService.Api.Extension
 {
     public static class JwtConfig
     {

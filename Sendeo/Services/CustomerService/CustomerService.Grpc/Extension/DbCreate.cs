@@ -10,6 +10,8 @@ namespace CustomerService.Grpc.Extension
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<CustomerContext>();
                 context.Database.EnsureCreated();
+                //Console.WriteLine($" CustomerService:{result} , {context.ContextId}");
+
             }
         }
 

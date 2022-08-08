@@ -1,0 +1,87 @@
+version: '3.4'
+
+services:
+  orderservice.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5002
+      - ConnectionStrings__OrderDb=Data Source=s_sqlserver;Initial Catalog=OrderDb;Persist Security Info=true;User ID=sa;Password=Omer123!
+      - Grpc:Category=http://categoryservice.grpc
+      - Grpc:Customer=http://customerservice.grpc
+    ports:
+      - "5002:5002"
+    depends_on:
+      - s_sqlserver
+    networks:
+      - backend
+
+  customerservice.grpc:
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__CustomerDb=Data Source=s_sqlserver;Initial Catalog=CustomerDb;Persist Security Info=true;User ID=sa;Password=Omer123!
+    ports:
+      - "5003:5003"
+    depends_on:
+      - s_sqlserver
+    networks:
+      - backend
+
+  categoryservice.grpc:
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__CategoryDb=Data Source=s_sqlserver;Initial Catalog=CategoryDb;Persist Security Info=true;User ID=sa;Password=Omer123!
+    ports:
+      - "5004:5004"
+    depends_on:
+      - s_sqlserver
+    networks:
+      - backend    
+
+  authservice.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5001
+    ports:
+      - "5001:5001"
+
+
+
+  s_sqlserver:
+    user: root
+    ports:
+      - 1433:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Omer123!
+    volumes:
+      - sqlserver_data:/var/opt/mssql/data
+      - sqlserver_log:/var/opt/mssql/log
+    networks:
+      - backend
+
+
+  
+
+
+  gatewayservice.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+    ports:
+      - "5000:5000"
+    networks:
+      - gateway
+
+
+volumes:
+  sqlserver_data:
+  sqlserver_log:
+
+networks:
+  backend:
+    driver: bridge
+    external: true
+  gateway:
+    driver: bridge
+    external: true
+  

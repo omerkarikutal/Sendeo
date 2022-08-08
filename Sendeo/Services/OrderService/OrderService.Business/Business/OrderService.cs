@@ -25,7 +25,26 @@ namespace OrderService.Business.Business
         public List<OrderList> GetAll()
         {
             var result = new List<OrderList>();
+
+
+            //return result;
             var data = _repository.GetAll();
+
+
+
+
+            if (data == null || data.Count == 0)
+            {
+                return result;
+            }
+
+            //return data.Select(s => new OrderList
+            //{
+            //    Category = "",
+            //    CompleteDate = s.CompleteDate,
+            //    Customer = "",
+            //    Id = s.Id
+            //}).ToList();
 
             foreach (var item in data)
             {

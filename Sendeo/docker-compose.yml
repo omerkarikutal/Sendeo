@@ -1,0 +1,47 @@
+version: '3.4'
+
+services:
+  orderservice.api:
+    container_name: c_orderservice
+    image: ${DOCKER_REGISTRY-}orderserviceapi
+    build:
+      context: .
+      dockerfile: Services/OrderService/OrderService.Api/Dockerfile
+
+  customerservice.grpc:
+    container_name: c_customerservicegrpc
+    image: ${DOCKER_REGISTRY-}customerservicegrpc
+    build:
+      context: .
+      dockerfile: Services/CustomerService/CustomerService.Grpc/Dockerfile
+
+
+  categoryservice.grpc:
+    container_name: c_categoryservicegrpc
+    image: ${DOCKER_REGISTRY-}categoryservicegrpc
+    build:
+      context: .
+      dockerfile: Services/CategoryService/CategoryService.Grpc/Dockerfile
+
+
+  authservice.api:
+    container_name: c_authservice
+    image: ${DOCKER_REGISTRY-}authserviceapi
+    build:
+      context: .
+      dockerfile: Services/AuthService/AuthService.Api/Dockerfile
+
+
+
+  s_sqlserver:
+    container_name: c_sqlserver
+    image: mcr.microsoft.com/mssql/server:2019-latest
+
+
+
+  gatewayservice.api:
+    image: ${DOCKER_REGISTRY-}gatewayserviceapi
+    build:
+      context: .
+      dockerfile: Services/GatewayService/GatewayService.Api/Dockerfile
+
