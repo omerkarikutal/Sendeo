@@ -6,7 +6,7 @@ AuthService identity tarafının yapıldığı jwt kullanılmıştır . Cqrs yap
 Gatewayservice için ocelot yapısı kullanıldı.
 Servisler arası iletişim de grpc (sync) yapısı tercih edildi.
 Repository Pattern birçok yapıda kullanıldı.
-Öncelikle username=test ve password=1234 ile token alarak , order servisine istek atmanız gerekmektedir(bir bug var , şimdilik token almanıza gerek yok.).
+Öncelikle username=test ve password=1234 ile token alarak , order servisine istek atmanız gerekmektedir(bir bug var , şimdilik token almanıza gerek yok,düzeltip commit edilecektir.).
 Test kısmı için xUnit kısmı kullanıldı.
 DataAcess tarafının testleri yapıldı.
 Veritabanı olarak mssql kullanıldı.
