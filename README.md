@@ -15,3 +15,4 @@ Docker için ayaklandırılmış olan sa user için şifrenin Omer123! olması g
 Docker üzerinde bütün servisler ayaklandırıldı.
 İlerleyen zamanlarda  , Service directory kısmı için Consul yapısı eklenecek.
 Loglama için Graylog eklenecek.
+solution path ine gelerek , docker-compose build , ardından docker-compose up - d yapmanız yeterli olacatır.
